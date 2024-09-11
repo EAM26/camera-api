@@ -16,14 +16,19 @@ def show_sequence(camera_sequence, cut_counter=0):
         st.write(cam)
 
 
-
 # Your list of items
 cameras_list = ["Cam 1", "Cam 2", "Cam 3", "Cam 4"]
-
+camera_sequence = ['Cam 1', 'Cam 4', 'Cam 2', 'Cam 1', 'Cam 4', 'Cam 2',
+                   'Cam 2', 'Cam 4', 'Cam 1', 'Cam 4', 'Cam 2', 'Cam 1',
+                   'Cam 3', 'Cam 1', 'Cam 4', 'Cam 2', 'Cam 1', 'Cam 3',
+                   'Cam 2', 'Cam 3', 'Cam 3', 'Cam 4', 'Cam 3', 'Cam 2',
+                   'Cam 1', 'Cam 2', 'Cam 4', 'Cam 2', 'Cam 1', 'Cam 3',
+                   'Cam 4', 'Cam 1', 'Cam 3', 'Cam 3', 'Cam 2', 'Cam 3',
+                   'Cam 3', 'Cam 4', 'Cam 2', 'Cam 3', 'Cam 4', 'Cam 3',
+                   'Cam 2', 'Cam 4', 'Cam 2', 'Cam 2', 'Cam 3', 'Cam 1',
+                   'Cam 4', 'Cam 3']
 
 st.title("Camera API")
-
-camera_sequence = create_seq(50)
 
 col1, col2, col3 = st.columns(3)
 
@@ -32,12 +37,12 @@ if 'cut_counter' not in st.session_state:
 
 with col1:
     st.write("### Actual")
-    show_sequence(camera_sequence, cut_counter= st.session_state.cut_counter)
+    show_sequence(camera_sequence, cut_counter=st.session_state.cut_counter)
 
 with col2:
     st.write("### Preview")
-    show_sequence(camera_sequence, cut_counter= st.session_state.cut_counter
-                                                + 1)
+    show_sequence(camera_sequence, cut_counter=st.session_state.cut_counter
+                                               + 1)
 
 with col3:
     if st.button("Cut"):
